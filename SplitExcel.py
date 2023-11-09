@@ -1,12 +1,13 @@
 import pandas as pd
 
-filepath = pd.read_excel("C:/Users/Mini1/Desktop/개발/Targetfile/230502 국내.xlsx")
+filename = "11"
+filepath = pd.read_excel(f"C:/Users/Mini1/Desktop/개발/Targetfile/{filename}.xlsx")
 newfile = "C:/Users/Mini1/Desktop/개발/Targetfile/"
-columname = "URL"
+
 n = 200 # 행 단위
 m = (filepath.shape[0] - 1) // n + 1 # 파일 개수를 자동으로 계산
 
-if filepath.shape[0] % n != 0: # 행이 1000개로 나누어 떨어지지 않는 경우
+if filepath.shape[0] % n != 0: # 행이 n개로 나누어 떨어지지 않는 경우
     m += 1 # 파일 개수를 하나 늘림
 for i in range(m):
     start = i * n # 시작 행
